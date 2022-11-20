@@ -296,7 +296,23 @@
         margin-right: 15%;
         background-color: #d9d9d9;
     }
+    div.scroll{
+        height: 50px;
+        width: 50px;
+        border-radius: 90px;
+        background-color: #D9D9D9;
+        position: absolute;
+        top: 761px;
+        left: 764px;
+    }
    
+    span.icon{
+        position: relative;
+        top: 11px;
+        left: 17px;
+        font-size: 22px;
+        color: black;
+    }
     </style>
 
 </head>
@@ -318,15 +334,20 @@
     </div>
     </header>
 
-    <section class="part1">
+    <section class="part1" id="sec1">
         <img src="/Images/car2.jpg" alt="car" class="car">
         <div class="box">
             <span class="tx">Search for vehicles near you</span>
             <input type="search" placeholder="Pickup City" class="sc">
             <a href="" class="fc"><button>FIND CARS</button></a>
         </div>
+        <a href="#sec2">
+            <div class="scroll"><span class="icon"><i class="fa-solid fa-arrow-down-long"></i></span></div>
+            
+            
+        </a>
     </section>
-    <section class="part2"> 
+    <section class="part2" id="sec2"> 
         <div class="cont"><span>WHY CHOOSE US?</span></div>
         <div class="imag">
             <img src="/Images/gif2.gif" alt="gif" class="gif2">
