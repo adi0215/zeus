@@ -5,45 +5,405 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <style>
         body{
             font-family: 'Montserrat', sans-serif;
         }
+        span.logo{
+            font-size: 78px;
+            position:absolute;
+            left:50px;
+            top:10px;
+        }
+        span.logo2{
+            font-size: 78px;
+            position:absolute;
+            left:60px;
+            top:38px;
+            font-size: 62px;
+        }
         .title{
             position: absolute;
-            left: 14.45%;
+            left: 10.45%;
             right: 26.48%;
-            top: 0%;
+            top: 26%;
             bottom: 46.49%;
-
-            font-family: 'Montserrat';
-            font-style: normal;
             font-weight: 528;
-            font-size: 48px;
+            font-size: 40px;
             line-height: 127.9%;
             color: #000000;
-
+            text-shadow: 0px 8.14286px 8.14286px rgba(0, 0, 0, 0.25);
+        }
+        .title2{
+            position: absolute;
+            left: 9%;
+            right: 26.48%;
+            top: 26%;
+            bottom: 46.49%;
+            font-weight: 528;
+            font-size: 30px;
+            line-height: 127.9%;
+            color: #000000;
             text-shadow: 0px 8.14286px 8.14286px rgba(0, 0, 0, 0.25);
         }
 
         .head{
             position: absolute;
-            width: 1728px;
+            width: 1536px;
             height: 140px;
             left: 0px;
             top: 0px;
             background: #D9D9D9;
         }
+        .abtus{
+            border-radius: 32px;
+            position: absolute;
+            width: 130px;
+            height: 44px;
+            right: 352px;
+            top: 44px;
+        }
+        .con{
+            border-radius: 32px;
+            position: absolute;
+            width: 130px;
+            height: 44px;
+            right:  211px;
+            top: 44px;
+        }
+        .lgn{
+            float:right;
+            border-radius: 32px;
+            position: absolute;
+            width: 140px;
+            height: 52px;
+            right: 50px;
+            top: 40px;
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+       
+        button.abtus:hover,button.con:hover{
+            background-color: #333333;
+            color: #D9D9D9;
+        }
+        button.lgn:hover{
+            background-color: #D9D9D9;
+            color:#000000;
+        }
+        img.car{
+            position: absolute;
+            width: 1536px;
+            height: 847px;
+            left: 0px;
+            top: 140px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)), url(image.png);
+        }
+        .box{
+            position: absolute;
+            width: 640px;
+            height: 268px;
+            left: 475px;
+            top: 384px;
+            background: rgba(164, 156, 156, 0.81);
+            border-radius: 50px;
+        }
+        span.tx{
+            position: absolute;
+            width: 793px;
+            height: 123px;
+            left: 102px;
+            top: 30px;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 30px;
+            line-height: 49px;
+            text-transform: capitalize;
+            color: #000000;
+        }
+        .sc{
+            position: absolute;
+            width: 507px;
+            height: 70px;
+            left: 69px;
+            top: 95px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 90px;
+            color: white;
+            padding-left: 80px;
+            
+        }
+        input.sc::placeholder{
+            font-size: 18px;
+            color:white;
+            font-weight: 100;
+            line-height: 44px;
+        }
+        a.fc>button{
+            position: absolute;
+            width: 161px;
+            height: 43px;
+            left: 243px;
+            top: 206px;
+            background: #000000;
+            border-radius: 40px;
+            color:white;
+        }
+       
+        a.fc>button:hover{
+            background-color: #D9D9D9;
+            color:#000000; 
+        }
+        section.part2{
+            position: absolute;
+            width: 1536px;
+            height: 324px;
+            left: 0px;
+            top: 987px;
+            background: #D9D9D9;
+
+        }
+        .cont{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            top:20px;
+        }
+        div.cont>span{
+            font-weight: 800;
+            font-size: 28px;
+        }
+        div.imag{ 
+
+            padding: 20px;
+            padding-top: 0px;
+        }
+
+        img.gif1{
+            height: 235px;
+            position: absolute;
+            top: 76px;
+            left: 1179px;        
+        }
+        img.gif3 {
+            height: 250px;
+            position: absolute;
+            top: 80px;
+            left: 649px;
+        }
+        img.gif2 {
+            height: 319px;
+            position: absolute;
+            top: 40px;
+            left: 66px;
+        }
+
+        span.gf1{
+            position: absolute;
+            top: 274px;
+            left: 75px;
+        }
+        span.gf2{
+            position: absolute;
+            top: 274px;
+            left: 629px;
+        }
+        span.gf3{
+            position: absolute;
+            top: 274px;
+            left: 1188px;
+        }
+        footer.foot{
+            position: relative;
+            width: 1536px;
+            height: 249px;
+            left: 0px;
+            margin-top: 1880px;
+            background-color: #D9D9D9;
+
+        }
+       div.place{
+        position:relative;
+        top:262px;
+       }
+       img.dim{
+            height: 650px;
+            width:90%;
+            text-align: center;
+       }
+       a.favicon:visited{
+            color: black;
+       }
+       a.favicon{
+        margin-left:50px;
+        position:relative;
+        top:157px;
+        left:28px;
+        font-size: 20px;
+       }
+       span.qkl{
+        text-decoration: underline;
+        position: relative;
+        left: 456px;
+        top: 52px;
+       }
+       span.cnt{
+        position: absolute;
+        top: 30px;
+        right: 244px;
+        text-decoration: underline;
+    
+       }
+       div.link1>a,div.link2>a{
+        color: #000000;
+        position: relative;
+        left: 651px;
+        padding-top: 20px;
+        top: 72px;
+       }
+       span.add {
+        position: relative;
+        left: 1088px;
+    }
+    span.sls {
+        position: relative;
+        left: 1305px;
+        top: -45px;
+    }
+    span.cc {
+        position: relative;
+        left: 1241px;
+        top: -24px;
+    }
+    span.gnl{
+        position: relative;
+        left: 1080px;
+    }
+    div#carouselExampleInterval {
+        position: relative;
+        top: 261px;
+        margin-left: 15%;
+        margin-right: 15%;
+        background-color: #d9d9d9;
+    }
+   
     </style>
 
 </head>
 <body>
     <header class="head">
-    <img src="image.png" alt="">
+    <!-- <img src="image.png" alt=""> -->
+    <span class="logo">Z</span>
     <span class="title">ZEUS RENTALS</span>
+    <div class="but">
+        <a href="#">
+            <button class="abtus">ABOUT US</button>
+        </a>
+        <a href="#">
+            <button class="con">CONTACT US</button>
+        </a>
+        <a href="#">
+            <button class="lgn">LOGIN/SIGNUP</button>
+        </a>
+    </div>
     </header>
+
+    <section class="part1">
+        <img src="/Images/car2.jpg" alt="car" class="car">
+        <div class="box">
+            <span class="tx">Search for vehicles near you</span>
+            <input type="search" placeholder="Pickup City" class="sc">
+            <a href="" class="fc"><button>FIND CARS</button></a>
+        </div>
+    </section>
+    <section class="part2"> 
+        <div class="cont"><span>WHY CHOOSE US?</span></div>
+        <div class="imag">
+            <img src="/Images/gif2.gif" alt="gif" class="gif2">
+            <img src="/Images/gif3.gif" alt="gif" class="gif3">
+            <img src="/Images/gif1.gif" alt="gif" class="gif1">
+            <span class="gf1">Internal and external sanitization of cars</span>
+            <span class="gf2">Immidiate contactless delivery of car</span>
+            <span class="gf3">Regular checks for all cars</span>
+        </div>
+
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="100">
+                    <img src="/Images/carp1.jpg" class="d-block w-100" alt="...">
+                    <figcaption>lorem epsum</figcaption>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="200">
+                    <img src="/Images/car12.jpg" class="d-block w-100" alt="...">
+                    <figcaption>lorem epsum</figcaption>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/Images/car13.jpg" class="d-block w-100" alt="...">
+                    <figcaption>lorem epsum</figcaption>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+      
+
+    </section>
+    <footer class="foot">
+        <span class="logo2">Z</span>
+        <span class="title2">ZEUS RENTALS</span>
+        <a href="http://facebook.com" style="color: black; "class="favicon"><i class="fa-brands fa-facebook" ></i></a>
+        <a href="http://twitter.com" style="color: black; "class="favicon"><i class="fa-brands fa-twitter" ></i></a>
+        <a href="http://instagram.com" style="color: black; "class="favicon"><i class="fa-brands fa-instagram" ></i></a>
+        <span class="qkl">
+            Quick Links
+        </span>
+            <div class="link1">
+                <a href="">Terms and Conditions</a>
+            </div>
+            <div class="link2">
+                <a href="">Privacy Policy</a>
+            </div>
+        
+         <span class="cnt">
+            Contact US
+        </span>
+        <div>
+            <span class="add">
+                500 Terry Francois <br> Street San Francisco,<br> CA 94158
+            </span>
+            <span class="sls">
+               <b>Sales:</b> <br>
+                sales@mysite.con
+            </span>
+
+        </div>
+          <div>
+            <span class="gnl">
+                General Inquiries: <br>
+                    123-456-7890
+            </span>
+          
+            <span class="cc">
+               <b>Customer care:</b> <br> customercare@mysite.com
+            </span>
+
+          </div>
+    </footer>
 </body>
 </html>
