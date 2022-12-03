@@ -228,7 +228,7 @@
             width: 1536px;
             height: 249px;
             left: 0px;
-            margin-top: 1880px;
+            margin-top: 2131px;
             background-color: #D9D9D9;
 
         }
@@ -292,8 +292,7 @@
     div#carouselExampleInterval {
         position: relative;
         top: 214px;
-        margin-left: 15%;
-        margin-right: 15%;
+    
     }
     div.scroll{
         height: 50px;
@@ -312,31 +311,21 @@
         font-size: 22px;
         color: black;
     }
-    figcaption.pic1{
+    [type="search"]::-webkit-search-cancel-button,
+    [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    }
+    figcaption{
         position: relative;
-        top: 520px;
-        color: white;
-        left: 380px;
+        text-align: center;
+        top: 760px;
+        color:white;
+        font-weight:400 ;
         font-size: 32px;
+        
     }
-    figcaption.pic2 {
-        position: relative;
-        top: 524px;
-        left: 188px;
-        color: white;
-        font-size: 32px;
-    }
-    figcaption.pic3 {
-        position: relative;
-        top: 515px;
-        left: 263px;
-        color: white;
-        font-size: 32px;
-    }
-    div.bx {
-        height: 832px;
-        background-color: #D9D9D9;
-    }
+   
     </style>
 
 </head>
@@ -349,7 +338,7 @@
         <a href="#">
             <button class="abtus">ABOUT US</button>
         </a>
-        <a href="#">
+        <a href="#foot">
             <button class="con">CONTACT US</button>
         </a>
         <a href="/login.html">
@@ -362,7 +351,15 @@
         <img src="/car2.jpg" alt="car" class="car">
         <div class="box">
             <span class="tx">Search for vehicles near you</span>
-            <input type="search" placeholder="Pickup City" class="sc">
+            <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
+                <option value="" disabled selected hidden>Pickup City</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Gujrat">Gujrat</option>
+                <option value="Kerla">Kerla</option>
+            </select>
+            <!-- <input type="search" placeholder="Pickup City" class="sc"> -->
             <a href="" class="fc"><button>FIND CARS</button></a>
         </div>
         <a href="#sec2">
@@ -372,29 +369,30 @@
         </a>
     </section>
     <section class="part2" id="sec2"> 
-        <div class="cont"><span>WHY CHOOSE US?</span></div>
-        <div class="imag">
-            <img src="/gif2.gif" alt="gif" class="gif2">
-            <img src="/gif3.gif" alt="gif" class="gif3">
-            <img src="/gif1.gif" alt="gif" class="gif1">
-            <span class="gf1">Internal and external sanitization of cars</span>
-            <span class="gf2">Immidiate contactless delivery of car</span>
-            <span class="gf3">Regular checks for all cars</span>
-        </div>
-    <div class="bx">
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="cont"><span>WHY CHOOSE US?</span>
+            </div>
+            <div class="imag">
+                <img src="/gif2.gif" alt="gif" class="gif2">
+                <img src="/gif3.gif" alt="gif" class="gif3">
+                <img src="/gif1.gif" alt="gif" class="gif1">
+                <span class="gf1">Internal and external sanitization of cars</span>
+                <span class="gf2">Immidiate contactless delivery of car</span>
+                <span class="gf3">Regular checks for all cars</span>
+            </div>
+    
+    <div id="carouselExampleInterval" class="carousel slide bx" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="1500">
               <figcaption class="pic1">1200+ cars to pick from</figcaption>
-            <img src="/unsplash1.jpg" class="d-block w-100" alt="...">
+            <img src="/unsplash1.jpg" class="d-block w-100" height="850px" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="1500">
               <figcaption class="pic2">Hassle free renting with immediate delivery</figcaption>
-            <img src="/unsplash2.jpg" class="d-block w-100" alt="...">
+            <img src="/unsplash2.jpg" class="d-block w-100" height="850px" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="1500">
               <figcaption class="pic3">Ride long distances on a budget</figcaption>
-            <img src="/unsplash3.jpg" class="d-block w-100" alt="...">
+            <img src="/unsplash3.jpg" class="d-block w-100" height="850px"alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -406,12 +404,12 @@
           <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
 
+
+</section>
     
             
-    </section>
-    <footer class="foot">
+    <footer class="foot" id="foot">
         <span class="logo2">Z</span>
         <span class="title2">ZEUS RENTALS</span>
         <a href="http://facebook.com" style="color: black; "class="favicon"><i class="fa-brands fa-facebook" ></i></a>
