@@ -14,13 +14,8 @@
     </head>
     <body>
 
-        <div class="tabs">
-            <button class="tablink" id="defaultOpen" onclick="openTab('Email',this)">Signup with Email</button>
-            <button class="tablink" onclick="openTab('Phone',this)">Signup with Phone</button> 
-        </div>
-
-        <div id="Email" class="tabcontent">
-            <div class="form">
+        <div class="form">
+            <form action="" method="post">
             <table>
                 
                 <tr><td colspan=2><h1>Enter details to signup</h1></td></tr>
@@ -37,28 +32,10 @@
                     <td><button type="button" onclick=getInfo()>SIGNUP AS RENTER</button></td>
                 </tr>
             </table>
-            </div>
+        </form>
         </div>
-        <div id="Phone" class="tabcontent">
-            <div class="form">
-            <table>
-                
-                <tr><td colspan=2><h1>Enter details to signup</h1></td></tr>
-                <tr><td colspan=2><input type="text" placeholder="First Name" id="firstName"/></td></tr>
-                <tr><td colspan=2><input type="text" placeholder="Last Name" id="lastName"/></td></tr>
 
-                <tr><td colspan=2><input type="tel" placeholder="Mobile" id="mobile" pattern=/></td></tr>
-
-                <tr><td colspan=2 ><input type="password" placeholder="Password" id="password"/></td></tr>
-                <tr><td colspan=2 ><input type="password" placeholder="Confirm Password" id="passwordConf"/></td></tr>
-
-                <tr>
-                    <td><button type="button" onclick=getInfo()>SIGNUP AS HOST</button></td>
-                    <td><button type="button" onclick=getInfo()>SIGNUP AS RENTER</button></td>
-                </tr>
-            </table>
-            </div>
-        </div>
+      
         <script src="js/tab.js"></script>
     </body>
 </html>
