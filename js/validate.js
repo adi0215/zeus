@@ -12,28 +12,12 @@ function chkEmail(){
         
 
     }
-    function chkMob(){
-        var phNo = document.getElementById("mobile").value;
-        if(!/^[0-9]{10}$/.test(phNo)){
-            alert("Please enter valid phNo.");
-        }
-        else{
-            alert('valid phNo');
-        }
-    }
     function getInfo(){
         var value = document.getElementById("loginEmail").value;
-        var phNo = document.getElementById("mobile").value;
 
-        if(value && phNo){
-            chkEmail();
-            chkMob();
-        }
-        else if(value){
+        if(value){
             chkEmail();
         }
-        else if(phNo)
-            chkMob();
         else
-            alert("Enter mobile No or Email.");
+            alert("Enter valid Email.");
     }
