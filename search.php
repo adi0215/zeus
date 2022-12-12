@@ -560,17 +560,16 @@ div.list>img:hover{
            echo"     <div class='bk'>";
            echo"         <i class='fa-solid fa-indian-rupee-sign pos'>".$row['Price']."</i>";
            echo"     <a href='#'>";
-           echo"         <button class='oddbtn'> BOOK NOW</button>";
+           echo "<form action='booking.php' method ='POST'>";
+           echo "<input type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">";
+        //    echo"         <button class='oddbtn'> BOOK NOW</button>";
+           echo "</form>";
+           
            echo"     </a>";
            echo"     </div>";
            echo"</div>";
            
-        //    echo"     <div class='bk'>";
-        //    echo"         <i class='fa-solid fa-indian-rupee-sign pos'>".$row['Price']."</i>";
-        //    echo"     <a href='#'>";
-        //    echo"         <button class='oddbtn'> BOOK NOW</button>";
-        //    echo"     </a>";
-        //    echo"     </div>";
+     
            echo" <br>";
         }
     }
@@ -579,7 +578,8 @@ div.list>img:hover{
             ?>
             
         </div>
-     
+   
+    
         <!-- <div class="even" style="display: flex;">
             <div class="list" >
                <img src="dastun.png" alt="" height="120px">
