@@ -561,8 +561,8 @@ div.list>img:hover{
            echo"         <i class='fa-solid fa-indian-rupee-sign pos'>".$row['Price']."</i>";
            echo"     <a href='#'>";
            echo "<form action='booking.php' method ='POST'>";
-           echo "<input type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">";
-        //    echo"         <button class='oddbtn'> BOOK NOW</button>";
+        //    echo "<input type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">";
+           echo"         <button class='oddbtn' type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">BOOK NOW</button>";
            echo "</form>";
            
            echo"     </a>";

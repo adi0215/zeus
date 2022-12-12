@@ -121,8 +121,8 @@
             if($num==1){
                 $login=true;
                 session_start();
-                $_session['loggedin']=true;
-                $_session['email']=$_POST["loginEmail"];
+                $_SESSION['loggedin']=true;
+                $_SESSION['email']=$_POST["loginEmail"];
                
                 header("location:Homepage.html");
             }
