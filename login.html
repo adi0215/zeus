@@ -58,7 +58,7 @@
                 font-family: montserrat;
                 font-weight:300;
             
-                background: url(car1.jpg);
+                background: url(images/car1.jpg);
                 background-repeat: no-repeat;
                 background-size:cover;
                 box-shadow: inset 0 0 0 1000px   rgba(0,0,0,.5);
@@ -76,13 +76,13 @@
                 margin:auto;
             }
             #loginEmail{
-                background-image:url(PFP.jpeg);
+                background-image:url(images/PFP.jpeg);
                 background-repeat: no-repeat;
                 background-size:35px 35px;
                 padding-left:40px;
             }
             #password{
-                background-image:url(pwd.jpeg);
+                background-image:url(images/pwd.jpeg);
                 background-repeat: no-repeat;
                 background-size:25px 25px;
                 padding-left:40px;
@@ -97,12 +97,12 @@
             <table>
                 
                     <tr><td colspan=2><h1>Enter details to login</h1></td></tr>
-                    <tr><td colspan=2><input type="text" placeholder="Email ID/MobileNo" id="loginEmail"/></td></tr>
-                    <tr><td colspan=2 ><input type="password" placeholder="Password" id="password"/></td></tr>
-                    <tr><td colspan=2><input type="submit" value="LOGIN" onclick="getInfo()"/></td></tr>
+                    <tr><td colspan=2><input type="email" placeholder="Email ID" id="loginEmail" required/></td></tr>
+                    <tr><td colspan=2 ><input type="password" placeholder="Password" id="password" required/></td></tr>
+                    <tr><td colspan=2><a href="search.html"></a><input type="submit" value="LOGIN"/></a></td></tr>
                     <tr>
                     <td><a href="#forgotPwd" color="#000000">Forgot Password?</a></td>
-                    <td><a href="#signup">New User?<b>Signup</b></a></td>
+                    <td><a href="signup.php">New User?<b>Signup</b></a></td>
                     </tr>
                 
             </table>
