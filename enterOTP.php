@@ -26,6 +26,7 @@ session_start();
          echo "INDIDE SUBMIT ".$_POST['otp']." ".$_SESSION['otp'];
          if($_POST['otp']==$_SESSION['otp']){
              if ($_SESSION['buttonPressed']==1) {
+                
                  Redirect('forHost.html', false);
                  
              }

@@ -86,7 +86,7 @@
                     }
 
                     echo "Email sent successfully";
-
+                    
                     ob_end_clean();
                     Redirect("enterOTP.php", false);
                 }
