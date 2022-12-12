@@ -20,12 +20,12 @@
                     
                     <tr><td colspan=2><h1>Enter details to signup</h1></td></tr>
                     <tr><td colspan=2><input type="text" placeholder="First Name" name="firstName" id="firstName" required/></td></tr>
-                    <tr><td colspan=2><input type="text" placeholder="Last Name" id="lastName"/></td></tr>
+                    <tr><td colspan=2><input type="text" placeholder="Last Name" name="lastName" id="lastName"/></td></tr>
 
                 
 
                     <tr><td colspan=2><input type="email" placeholder="Email ID" name="loginEmail" id="loginEmail" required/></td></tr>
-                    <tr><td colspan=2 ><input type="password" placeholder="Password" id="password" required/></td></tr>
+                    <tr><td colspan=2 ><input type="password" placeholder="Password" id="password" name="password" required/></td></tr>
                     <tr><td colspan=2 ><input type="password" placeholder="Confirm Password" id="passwordConf" required/></td></tr>
                     <tr>
                         <td><input type="submit" name="button1" value="SIGNUP AS HOST"/></td>
@@ -53,6 +53,10 @@
                 if (isset($_POST['button1']) || isset($_POST['button2'])) {
                     $_SESSION['buttonPressed'] = isset($_POST['button1']) ? 1 : 2;
                     $_SESSION['otp'] = rand(1000, 10000);
+                    $_SESSION['firstName'] = $_POST['firstName'];
+                    $_SESSION['lastName'] = $_POST['lastName'];
+                    $_SESSION['loginEmail'] = $_POST['loginEmail'];
+                    $_SESSION['password'] = $_POST['password'];
                     ob_start();
 
                     $mail = new PHPMailer();

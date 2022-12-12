@@ -14,6 +14,8 @@
 </html>
 <?php
 session_start();
+    include('connection.php');
+    $query = "insert into signup(firstName,lastName,Email,Password,userType) values('".$_SESSION["firstName"]."','".$_SESSION["lastName"]."','".$_SESSION['loginEmail']."','".$_SESSION['password']."'";
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
@@ -25,13 +27,22 @@ session_start();
      if (isset($_POST['submit'])) {
          echo "INDIDE SUBMIT ".$_POST['otp']." ".$_SESSION['otp'];
          if($_POST['otp']==$_SESSION['otp']){
+
              if ($_SESSION['buttonPressed']==1) {
-                
+                $query = $query . ",\"HOST\")";
+            if (!mysqli_query($con, $query)) {
+                die("ERROR ".mysqli_error($con));
+            }
                  Redirect('forHost.html', false);
                  
              }
              else if ($_SESSION['buttonPressed']==2) {
-                 Redirect('search.html', false);
+                $query = $query . ",\"RENTER\")";
+                echo $query;
+                if (!mysqli_query($con, $query)) {
+                    die("ERROR ".mysqli_error($con));
+                }
+                 Redirect('Homepage.html', false);
                  
              }
          } else
