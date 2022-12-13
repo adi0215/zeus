@@ -16,6 +16,7 @@
 session_start();
     include('connection.php');
     $query = "insert into signup(firstName,lastName,Email,Password,userType) values('".$_SESSION["firstName"]."','".$_SESSION["lastName"]."','".$_SESSION['loginEmail']."','".$_SESSION['password']."'";
+    $loginQuery = "insert into ";
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);

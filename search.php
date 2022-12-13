@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,7 +164,7 @@
         margin-left: 10px;
     }
     .book{
-        display: inline-block;
+        display: block;
         background-color: #efefef;
         width: 1070px;
         position: absolute;
@@ -204,6 +209,9 @@
         top: -122px;
         left: 155px;
     }
+    .odd{
+        width:100%;
+    }
     .odd>h4{
         position: relative;
         left:160px;
@@ -224,10 +232,15 @@
         margin-right: 10px;
         width: 230px;
         display: flex;
+        text-align:right;
+        position: relative;
+    left: 361px;
+        
          }
     div.list{
         display: flex;
         width: 800px;
+
     }
     i.pos {
         height: 18px;
@@ -489,48 +502,85 @@ div.list>img:hover{
         </div>
        
     </section>
-    <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
+    <!-- <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
         <option value="" disabled selected hidden>Pickup City</option>
         <option value="Bangalore">Bangalore</option>
         <option value="Mumbai">Mumbai</option>
         <option value="Delhi">Delhi</option>
-        <option value="Gujrat">Gujrat</option>
+        <option value="Gujarat">Gujarat</option>
         <option value="Kerla">Kerla</option>
-    </select>   
-     <div class="dtl">
+    </select>    -->
+     <!-- <div class="dtl">
         <label for="start">Journey Starts</label>
         <input type="datetime-local" name="" id="start" >
         <i class="fa-solid fa-arrow-right"></i>
         <label for="ends">Journey Ends</label>
         <input type="datetime-local" name="" id="ends" >
-    </div>
-    <section class="book">
-        <div class="odd" style="display: flex;">
-            <div class="list" >
-               <img src="tiago.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Tata Tiago</h3>
-                </li>
-                <li>
-                    Automatic . Petrol . 5 Seater
-                </li>
+    </div> -->
 
-                <li>
-                    38k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">2301</i>
-                <a href="#">
-                    <button class="oddbtn"> BOOK NOW</button>
-                </a>
-                </div>
+    <?php
+    $city1=$_GET['pickupcity'];
+    $con=mysqli_connect("localhost","root","","zeus");
+    $res=mysqli_query($con,"Select * from car_details where Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')");
+  
+?>
+
+
+
+
+
+
+
+
+    <section class="book">
+        <div class="odd" style="display: inline;">
+        <?php 
+           if(mysqli_num_rows($res)<=0){
+               echo "<h1>NO CARS FOR THIS LOCATION!!!!</h1>";
+            }
+            else{
+                while($row=mysqli_fetch_array($res)){
+            
+            // echo "<div class='even'  style='display: flex;'>";
+            echo "  <div class='list' >";
+                
+          echo "     <img src='".$row['Car_Image']."'  height='120px'>";
+           echo" <ul>";
+           echo"     <li>";
+           echo "         <h3>".$row['Brand']." ".$row['Car_Type']."</h3>";
+           echo"     </li>";
+           echo"     <li>";
+           echo       $row['Fuel']." . ".$row['Transmission']." . ".$row['Capacity']." Seater";
+           echo"     </li>";
+
+           echo"     <li>";
+           echo       $row['KM_Driven']." KM Driven";
+           echo"     </li>";
+           echo" </ul>";
+           echo"     <div class='bk'>";
+           echo"         <i class='fa-solid fa-indian-rupee-sign pos'>".$row['Price']."</i>";
+           echo"     <a href='#'>";
+           echo "<form action='booking.php' method ='POST'>";
+        //    echo "<input type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">";
+           echo"         <button class='oddbtn' type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">BOOK NOW</button>";
+           echo "</form>";
+           
+           echo"     </a>";
+           echo"     </div>";
+           echo"</div>";
+           
      
+           echo" <br>";
+        }
+    }
+     
+            // die("NO CARS FOR THIS LOCATION!!!!");
+            ?>
+            
         </div>
-     
-        <div class="even" style="display: flex;">
+   
+    
+        <!-- <div class="even" style="display: flex;">
             <div class="list" >
                <img src="dastun.png" alt="" height="120px">
             <ul>
@@ -684,7 +734,7 @@ div.list>img:hover{
                 </div>
      
         </div>
-     
+      -->
        
       
         
@@ -711,7 +761,7 @@ div.list>img:hover{
         </span>
         <div>
             <span class="add">
-                500 Terry Francois <br> Street San Francisco,<br> CA 94158
+                SP Road <br> Delhi India,<br> 479158
             </span>
             <span class="sls">
                <b>Sales:</b> <br>
@@ -722,7 +772,7 @@ div.list>img:hover{
           <div>
             <span class="gnl">
                 General Inquiries: <br>
-                    123-456-7890
+                    923-456-7890
             </span>
           
             <span class="cc">

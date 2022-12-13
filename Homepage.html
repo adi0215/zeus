@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+     <script src="node_modules/airtable/build/airtable.browser.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +151,7 @@
             font-weight: 100;
             line-height: 44px;
         }
-        a.fc>button{
+        form>button{
             position: absolute;
             width: 161px;
             height: 43px;
@@ -159,7 +162,7 @@
             color:white;
         }
        
-        a.fc>button:hover{
+        form>button:hover{
             background-color: #D9D9D9;
             color:#000000; 
         }
@@ -331,7 +334,7 @@
 </head>
 <body>
     <header class="head">
-    <!-- <img src="images/image.png" alt=""> -->
+    <!-- <img src="image.png" alt=""> -->
     <span class="logo">Z</span>
     <span class="title">ZEUS RENTALS</span>
     <div class="but">
@@ -348,19 +351,27 @@
     </header>
 
     <section class="part1" id="sec1">
-        <img src="images/car2.jpeg" alt="car" class="car">
+        <img src="car1.jpg" alt="car" class="car">
         <div class="box">
             <span class="tx">Search for vehicles near you</span>
-            <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
-                <option value="" disabled selected hidden>Pickup City</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Gujrat">Gujrat</option>
-                <option value="Kerla">Kerla</option>
-            </select>
+            <form action="search.php" method="GET">
+                <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
+                    <option value="" disabled selected hidden>Pickup City</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="New Delhi">New Delhi</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Jammu Kashmir">Jammu Kashmir</option>
+                    <option value="Bangalore">Bangalore</option>
+                </select>
+                <!-- <input type="text"name="city"> -->
+                <!-- <a href="search.html" class="fc"> -->
+                    <button type="submit" vlaue="submit">FIND CARS</button>
+                <!-- </a> -->
+            </form>
+
             <!-- <input type="search" placeholder="Pickup City" class="sc"> -->
-            <a href="search.html" class="fc"><button>FIND CARS</button></a>
         </div>
         <a href="#sec2">
             <div class="scroll"><span class="icon"><i class="fa-solid fa-arrow-down-long"></i></span></div>
@@ -372,9 +383,9 @@
             <div class="cont"><span>WHY CHOOSE US?</span>
             </div>
             <div class="imag">
-                <img src="images/gif2.gif" alt="gif" class="gif2">
-                <img src="images/gif3.gif" alt="gif" class="gif3">
-                <img src="images/gif1.gif" alt="gif" class="gif1">
+                <img src="gif2.gif" alt="gif" class="gif2">
+                <img src="gif3.gif" alt="gif" class="gif3">
+                <img src="gif1.gif" alt="gif" class="gif1">
                 <span class="gf1">Internal and external sanitization of cars</span>
                 <span class="gf2">Immidiate contactless delivery of car</span>
                 <span class="gf3">Regular checks for all cars</span>
@@ -384,15 +395,15 @@
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="1500">
               <figcaption class="pic1">1200+ cars to pick from</figcaption>
-            <img src="images/unsplash1.jpg" class="d-block w-100" height="850px" alt="...">
+            <img src="unsplash1.jpg" class="d-block w-100" height="850px" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="1500">
               <figcaption class="pic2">Hassle free renting with immediate delivery</figcaption>
-            <img src="images/unsplash2.jpg" class="d-block w-100" height="850px" alt="...">
+            <img src="unsplash2.jpg" class="d-block w-100" height="850px" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="1500">
               <figcaption class="pic3">Ride long distances on a budget</figcaption>
-            <img src="images/unsplash3.jpg" class="d-block w-100" height="850px"alt="...">
+            <img src="unsplash3.jpg" class="d-block w-100" height="850px"alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -430,7 +441,7 @@
         </span>
         <div>
             <span class="add">
-                500 Terry Francois <br> Street San Francisco,<br> CA 94158
+                 SP Road <br> Delhi,India,<br> 479158
             </span>
             <span class="sls">
                <b>Sales:</b> <br>
@@ -441,7 +452,7 @@
           <div>
             <span class="gnl">
                 General Inquiries: <br>
-                    123-456-7890
+                    923-456-7890
             </span>
           
             <span class="cc">
