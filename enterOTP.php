@@ -34,7 +34,7 @@ session_start();
             if (!mysqli_query($con, $query)) {
                 die("ERROR ".mysqli_error($con));
             }
-                 Redirect('forHost.html', false);
+                 Redirect('forHost.php', false);
                  
              }
              else if ($_SESSION['buttonPressed']==2) {

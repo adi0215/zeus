@@ -1,4 +1,4 @@
-
+<?php include('connection.php')?>
 
 
 
@@ -337,13 +337,14 @@
   }
   .cnt>ul {
     list-style-type: none;
-  }
+    display: contents;
+}
   
   .cnt>ul>li {
     display: inline-block;
   }
   
-  input[type="checkbox"][id^="myCheckbox"] {
+  input[type="checkbox"] {
     display: none;
   }
   
@@ -351,17 +352,18 @@
     padding: 10px;
     display: block;
     position: relative;
-    margin: 10px;
     cursor: pointer;
     width: 45px;
+    margin-left: 28px;
+    margin-top: 20px;
   }
   
-  
-  .cnt>ul>li>label img {
+  .cnt>ul>li>label> img {
     height: 40px;
     width: 40px;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
+    
   }
   
   
@@ -388,13 +390,38 @@ div.list>img:hover{
   transform: scale(1.2);
   opacity: 2;
 }
+
+button.search{
+
+        border: 1px solid;
+        border-radius: 32px;
+        height: 35px;
+        top: -43px;
+        position: relative;
+    margin-left: 280px;
+    }
+    button.search:hover{
+        background-color: #202020;
+        color: #ffffff;
+    }
+    span.title>a{
+        text-decoration:none;
+        color:black;
+    }
 </style>
+
+
+
+
+
+
+
 
 </head>
 <body>
     <header class="head">
         <span class="logo">Z</span>
-        <span class="title">ZEUS RENTALS</span>
+        <span class="title"><a href="Homepage.html">ZEUS RENTALS</a></span>
         <a href="#" >
             <button class="btnn abs">
                 ABOUT US
@@ -404,119 +431,167 @@ div.list>img:hover{
             <button class="btnn cs" >CONTACT US</button>
         </a>
 
-        <img src="user.png" alt="user" class="usr">
+        <!-- <img src="user.png" alt="user" class="usr"> -->
     </header>
 
+
+
+
+
+
     <section class="filter">
+        
         <div class="filterhead">
+     
             <span class="fl">Filters</span>
             <img src="filter.png" alt="" height="20px" width="20px" class="fl">
         </div>
+        <form action="#" method="post">
+        <button type="submit"class='search'>SEARCH</button>
         <div class="cnt">
             <div class="type">
                 <span>Car Type</span>
             </div>
+            <?php
+                $carquery="select * from cartype ";
+                $carres=mysqli_query($con,$carquery);
+
+                if(mysqli_num_rows($carres)>0){
+                    foreach($carres as $cars){
+
+                        $checked=[];
+                        if(isset($_POST['ctype'])){
+                            $checked=$_POST['ctype'];
+                        }
+            ?>
+           
             <ul>
                 <li>
-                  <input type="checkbox" id="myCheckbox1">
-                  <label for="myCheckbox1"><img src="sedan.png" ><br><span>Sedan</span> </label>
+                    <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
+                    
+             
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?> </span> </label>
                 </li>
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox2">
-                  <label for="myCheckbox2"><img src="suv.png"  ><br><span>Suv</span> </label>
-                </li>
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox3">
-                  <label for="myCheckbox3"><img src="luxury.png" > 
-                    <br><span>Luxury</span> </label>
-                </li>
+               
               </ul>
+              <?php
+            }
+           }
+           else{
+            echo "no filters";
+           }
+           ?>
         </div>
         <hr> 
         <div class="cnt">
             <div class="type">
                 <span>Fuel Type</span>
             </div>
+            <?php
+           $carquery="select * from fueltype ";
+           $carres=mysqli_query($con,$carquery);
+
+           if(mysqli_num_rows($carres)>0){
+            foreach($carres as $cars){
+
+                $checked=[];
+                if(isset($_POST['ctype'])){
+                    $checked=$_POST['ctype'];
+                }
+                ?>
+           
             <ul>
                 <li>
-                  <input type="checkbox" id="myCheckbox4">
-                  <label for="myCheckbox4"><img src="petrol.png"><br><span>Petrol</span> </label>
-                </li>
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox5">
-                  <label for="myCheckbox5"><img src="petrol.png" ><br><span>Diesel</span> </label>
-                </li>
-                
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox6">
-                  <label for="myCheckbox6"><img src="electric.png" ><br><span>Electric</span> </label>
-                </li>
-                
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox7">
-                  <label for="myCheckbox7"><img src="cng.png" ><br><span>CNG</span> </label>
-                </li>
-                
-              </ul>
-        </div>
-        <hr>
-        <div class="cnt">
-            <div class="type ">
-                <span>Seats</span>
-            </div>
-            <ul class="two">
-                <li>
-                  <input type="checkbox" id="myCheckbox8">
-                  <label for="myCheckbox8"><img src="seats.png"><br><span>5Seats</span> </label>
-                </li>
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox9">
-                  <label for="myCheckbox9"><img src="seats.png" ><br><span>7Seats</span> </label>
+                    <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
+                    
+             
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?></span> </label>
                 </li>
                
               </ul>
+              <?php
+            }
+           }
+           else{
+            echo "no filters";
+           }
+           ?>
         </div>
-        <hr>
+        <hr> 
+        <div class="cnt">
+            <div class="type">
+                <span>seats</span>
+            </div>
+            <?php
+           $carquery="select * from seats ";
+           $carres=mysqli_query($con,$carquery);
+
+           if(mysqli_num_rows($carres)>0){
+            foreach($carres as $cars){
+
+                $checked=[];
+                if(isset($_POST['ctype'])){
+                    $checked=$_POST['ctype'];
+                }
+                ?>
+           
+            <ul>
+                <li>
+                    <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
+                    
+             
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']." Seater"?></span> </label>
+                </li>
+               
+              </ul>
+              <?php
+            }
+           }
+           else{
+            echo "no filters";
+           }
+           ?>
+        </div>
+        <hr> 
         <div class="cnt">
             <div class="type">
                 <span>Transmission</span>
             </div>
-            <ul class="two">
+            <?php
+           $carquery="select * from transmission ";
+           $carres=mysqli_query($con,$carquery);
+
+           if(mysqli_num_rows($carres)>0){
+            foreach($carres as $cars){
+
+                $checked=[];
+                if(isset($_POST['ctype'])){
+                    $checked=$_POST['ctype'];
+                }
+                ?>
+           
+            <ul>
                 <li>
-                  <input type="checkbox" id="myCheckbox10">
-                  <label for="myCheckbox10"><img src="manual.png"><br><span>Manual</span> </label>
-                </li>
-                <li>
-              
-                  <input type="checkbox" id="myCheckbox11">
-                  <label for="myCheckbox11"><img src="automatic.png" ><br><span>Automatic</span> </label>
+                    <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
+                    
+             
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?></span> </label>
                 </li>
                
               </ul>
+              <?php
+            }
+           }
+           else{
+            echo "no filters";
+           }
+           ?>
         </div>
-       
+        
+        </form>
+    
     </section>
-    <!-- <select name="pickupcity" id="" placeholder="Pickup City" class="sc">
-        <option value="" disabled selected hidden>Pickup City</option>
-        <option value="Bangalore">Bangalore</option>
-        <option value="Mumbai">Mumbai</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Kerla">Kerla</option>
-    </select>    -->
-     <!-- <div class="dtl">
-        <label for="start">Journey Starts</label>
-        <input type="datetime-local" name="" id="start" >
-        <i class="fa-solid fa-arrow-right"></i>
-        <label for="ends">Journey Ends</label>
-        <input type="datetime-local" name="" id="ends" >
-    </div> -->
+    
 
     <?php
     $city1=$_GET['pickupcity'];
@@ -539,6 +614,85 @@ div.list>img:hover{
                echo "<h1>NO CARS FOR THIS LOCATION!!!!</h1>";
             }
             else{
+
+                if(isset($_POST['ctype'])){
+                    $carchecked=[];
+                    $carchecked=$_POST['ctype'];
+                    $allCars= "SELECT * FROM car_details cd WHERE Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')";
+                    $fres="";
+                foreach ($carchecked as $ck) {
+                    //echo $ck;
+                    if ($ck == "c1" || $ck == "c2" || $ck == "c3") {
+                        $filter = "(cd.Car_Type IN (SELECT ct.name FROM cartype ct WHERE ct.id in ('$ck')))";
+                                
+                        //echo $filter;
+                    }
+                    else if ($ck == "f1" || $ck == "f2" || $ck == "f3" || $ck == "f4") {
+                        $filter = "(cd.Fuel in (SELECT ft.name from fueltype ft where ft.id in ('$ck')))";
+                        //echo $filter;
+                    }
+                    else if ($ck == "s1" || $ck == "s2") {
+                        $filter = "(cd.Capacity in (SELECT st.name from seats st where st.id in ('$ck')))";
+                        //echo $filter;
+                    }
+                    else if ($ck == "t1" || $ck == "t2") {
+                        $filter = "(cd.Transmission in (SELECT t.name FROM transmission t WHERE t.id in ('$ck')))";
+                        //echo $filter;
+                    }
+                    if ($fres!="") {
+                        $fres = $fres." or ";
+                    } else {
+                        $fres = $fres." and (";
+                    }
+                    $fres = $fres . $filter;
+                    //  $fquery="SELECT * FROM `car_details` WHERE Car_Type in (select name from cartype where id in ('$ck')) and Transmission in (select name from transmission where id in ('$ck')) and Fuel in (select name from fueltype where id in ('$ck')) and Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')";
+                    //   $fquery="SELECT * FROM car_details cd WHERE cd.Car_Type in (select ct.name from cartype ct where ct.id in ('$ck')) and cd.Transmission in (select t.name from transmission t where t.id in ('$ck')) and cd.Fuel  in (select ft.name from fueltype ft where ft.id in ('$ck'))";
+                    $fquery = "SELECT * FROM car_details cd WHERE Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1') and((cd.Car_Type in (select ct.name from cartype ct where ct.id in ('$ck'))) or( cd.Transmission in (select t.name from transmission t where t.id in ('$ck')) ) or (cd.Fuel  in (select ft.name from fueltype ft where ft.id in ('$ck'))) or (cd.Capacity  in (select st.name from seats st where st.id in ('$ck'))))";
+
+                }
+                $fres = $fres . ");";
+                        $fquerres=mysqli_query($con,$allCars.$fres);
+                        
+
+
+                        while($row1=mysqli_fetch_array($fquerres)){
+            
+                            // echo "<div class='even'  style='display: flex;'>";
+                            echo "  <div class='list' >";
+                                
+                          echo "     <img src='".$row1['Car_Image']."'  height='120px'>";
+                           echo" <ul>";
+                           echo"     <li>";
+                           echo "         <h3>".$row1['Brand']." ".$row1['Car_Type']."</h3>";
+                           echo"     </li>";
+                           echo"     <li>";
+                           echo       $row1['Fuel']." . ".$row1['Transmission']." . ".$row1['Capacity']." Seater";
+                           echo"     </li>";
+                
+                           echo"     <li>";
+                           echo       $row1['KM_Driven']." KM Driven";
+                           echo"     </li>";
+                           echo" </ul>";
+                           echo"     <div class='bk'>";
+                           echo"         <i class='fa-solid fa-indian-rupee-sign pos'>".$row1['Price']."</i>";
+                           echo"     <a href='#'>";
+                           echo "<form action='booking.php' method ='POST'>";
+                        //    echo "<input type='submit' class='oddbtn' name ='booking' value=".$row['RegNo'].">";
+                           echo"         <button class='oddbtn' type='submit' class='oddbtn' name ='booking' value=".$row1['RegNo'].">BOOK NOW</button>";
+                           echo "</form>";
+                           
+                           echo"     </a>";
+                           echo"     </div>";
+                           echo"</div>";
+                           
+                     
+                           echo" <br>";
+                        }
+
+                    
+                }
+                else{
+
                 while($row=mysqli_fetch_array($res)){
             
             // echo "<div class='even'  style='display: flex;'>";
@@ -573,170 +727,12 @@ div.list>img:hover{
            echo" <br>";
         }
     }
-     
+}
             // die("NO CARS FOR THIS LOCATION!!!!");
             ?>
             
         </div>
-   
-    
-        <!-- <div class="even" style="display: flex;">
-            <div class="list" >
-               <img src="dastun.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Datsun Go Plus</h3>
-                </li>
-                <li>
-                    Manual . Petrol . 7 Seater
-                </li>
-
-                <li>
-                    29k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">3304</i>
-                <a href="#">
-                    <button class="evenbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-     
-       
-        <div class="odd" style="display: flex;">
-            <div class="list" >
-               <img src="baleno.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Maruti Baleno Diesel</h3>
-                </li>
-                <li>
-                    Manual . Diesel . 5 Seater
-                </li>
-
-                <li>
-                    12k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">2901</i>
-                <a href="#">
-                    <button class="oddbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-     
-       
-        <div class="even" style="display: flex;">
-            <div class="list" >
-               <img src="triber.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Renault Triber</h3>
-                </li>
-                <li>
-                    Manual . Petrol . 7 Seater
-                </li>
-
-                <li>
-                    26k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">3514</i>
-                <a href="#">
-                    <button class="evenbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-     
-       
-        <div class="odd" style="display: flex;">
-            <div class="list" >
-               <img src="innova.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Toyota Innova</h3>
-                </li>
-                <li>
-                    Manual . Diesel . 7 Seater
-                </li>
-
-                <li>
-                    49k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">3981</i>
-                <a href="#">
-                    <button class="oddbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-     
-       
-        <div class="even" style="display: flex;">
-            <div class="list" >
-               <img src="tuv.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Mahindra TUV 300</h3>
-                </li>
-                <li>
-                    Manual . Petrol . 7 Seater
-                </li>
-
-                <li>
-                    32k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">2298</i>
-                <a href="#">
-                    <button class="evenbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-     
-       
-        <div class="odd" style="display: flex;">
-            <div class="list" >
-               <img src="zest.png" alt="" height="120px">
-            <ul>
-                <li>
-                    <h3>Tata Zest</h3>
-                </li>
-                <li>
-                    Manual . Petrol . 5 Seater
-                </li>
-
-                <li>
-                    38k kms Driven
-                </li>
-            </ul>
-           </div>
-                <div class="bk">
-                    <i class="fa-solid fa-indian-rupee-sign pos">2764</i>
-                <a href="#">
-                    <button class="oddbtn"> BOOK NOW</button>
-                </a>
-                </div>
-     
-        </div>
-      -->
-       
-      
+  
         
     </section>
 

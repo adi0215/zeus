@@ -9,7 +9,11 @@ $submitted=isset($_POST['submit'])?'true':'false';
                              
                          }
                          else if ($var==2) {
+<<<<<<< HEAD
                              Redirect('forHost.html', false);
+=======
+                             Redirect('forHost.php', false);
+>>>>>>> 9ca3ab35c200e0427ce1abe15ea016fe93d1d5cb
                              
                          }
                      } else

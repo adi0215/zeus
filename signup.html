@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <title>Signup page</title>
     <head>
@@ -116,3 +117,144 @@
         </div>
     </body>
 </html>
+=======
+<html>
+    <title>Signup page</title>
+    <head>
+        <style>
+            td{
+                line-height: 1.5;
+                padding:10px;
+            }
+            input{
+                height: 50px;
+                width:100%;
+                border-radius:32px;
+                font-size:20px;
+                padding-left:40px;
+            }
+            a:link {
+                color: black;
+                background-color: transparent;
+                text-decoration: none;
+                padding: 10px 0;
+            }
+            a:visited{
+                color:black;
+            }
+            a:hover{
+                text-decoration:underline;
+            }
+            button{
+                height:50px;
+                font-family: montserrat;
+                background-color: #333333;
+                color:white;
+                width: 100%;
+                border-radius:32px;
+                font-size:20px;
+            }
+            button:hover{
+                background-color: #D9D9D9;
+                color:black;
+                font-weight: 300;
+            }
+            @font-face {
+                font-family: montserrat;
+                src: url(Montserrat-VariableFont_wght.ttf);
+            }
+            .form {
+              margin: auto;
+              margin-top:7%;
+              padding:40% 0;
+              width: 60%;
+              background-color: rgba(129,126,126,.72);
+              padding: 10px;
+              text-align: center;
+              border-radius: 32px;
+            }
+            html  {
+                font-family: montserrat;
+                font-weight:300;
+            
+                background:url(car2.jpeg);
+                background-repeat: no-repeat;
+                background-size:cover;
+                box-shadow: inset 0 0 0 1000px   rgba(0,0,0,.5);
+            }
+            h1 {
+                font-family: montserrat;
+                font-weight:100;
+                font-size:48px;
+                text-align: center;
+            }
+            td{
+                text-align: center;
+            }
+            table{
+                margin:auto;
+            }
+            #loginEmail{
+                background-image:url(PFP.jpeg);
+                background-repeat: no-repeat;
+                background-size:35px 35px;
+                
+            }
+            #password{
+                background-image:url(pwd.jpeg);
+                background-repeat: no-repeat;
+                background-size:25px 25px;
+                background-position: 4px;
+            }
+            #mobile{
+                padding-left: 50px;
+                background-image:url(flag.jpeg);
+                background-repeat: no-repeat;
+                background-size:35px 25px;
+                background-position: 5px;
+            }
+            </style>
+           
+    </head>
+    <body>
+        <div class="form">
+            <table>
+                
+                <tr><td colspan=2><h1>Enter details to signup</h1></td></tr>
+                <tr><td colspan=2><input type="text" placeholder="First Name" id="firstName"/></td></tr>
+                <tr><td colspan=2><input type="text" placeholder="Last Name" id="lastName"/></td></tr>
+
+                <tr><td colspan=2><input type="tel" placeholder="Mobile" id="mobile" pattern=/></td></tr>
+
+                <tr><td colspan=2><input type="email" placeholder="Email ID" id="loginEmail"/></td></tr>
+                <tr><td colspan=2 ><input type="password" placeholder="Password" id="password"/></td></tr>
+                <tr>
+                    <td><button type="button" onclick=getInfo()>SIGNUP AS HOST</button></td>
+                    <td><button type="button" onclick=getInfo()>SIGNUP AS RENTER</button></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function chkEmail(){
+                var value = document.getElementById("loginEmail").value;
+                
+                <tr><td colspan=2><h1>Enter details to signup</h1></td></tr>
+                <tr><td colspan=2><input type="text" placeholder="First Name" id="firstName"/></td></tr>
+                <tr><td colspan=2><input type="text" placeholder="Last Name" id="lastName"/></td></tr>
+
+                <tr><td colspan=2><input type="tel" placeholder="Mobile" id="mobile" pattern=/></td></tr>
+
+                <tr><td colspan=2 ><input type="password" placeholder="Password" id="password"/></td></tr>
+                <tr><td colspan=2 ><input type="password" placeholder="Confirm Password" id="passwordConf"/></td></tr>
+
+                <tr>
+                    <td><button type="button" onclick=getInfo()>SIGNUP AS HOST</button></td>
+                    <td><button type="button" onclick=getInfo()>SIGNUP AS RENTER</button></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <script src="js/tab.js"></script>
+    </body>
+</html>
+>>>>>>> 9ca3ab35c200e0427ce1abe15ea016fe93d1d5cb
