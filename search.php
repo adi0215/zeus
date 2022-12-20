@@ -620,27 +620,45 @@ button.search{
                     $carchecked=$_POST['ctype'];
                     $allCars= "SELECT * FROM car_details cd WHERE Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')";
                     $fres="";
+                    $prev="";
                 foreach ($carchecked as $ck) {
                     //echo $ck;
+                    $op="and";
                     if ($ck == "c1" || $ck == "c2" || $ck == "c3") {
                         $filter = "(cd.Car_Type IN (SELECT ct.name FROM cartype ct WHERE ct.id in ('$ck')))";
-                                
+                        if($prev=="c"){
+                            $op="or";
+                        }
+                        
+                        $prev="c";     
                         //echo $filter;
                     }
                     else if ($ck == "f1" || $ck == "f2" || $ck == "f3" || $ck == "f4") {
                         $filter = "(cd.Fuel in (SELECT ft.name from fueltype ft where ft.id in ('$ck')))";
+                        if($prev=="f"){
+                            $op="or";
+                        }
+                        $prev = "f";
                         //echo $filter;
                     }
                     else if ($ck == "s1" || $ck == "s2") {
                         $filter = "(cd.Capacity in (SELECT st.name from seats st where st.id in ('$ck')))";
+                        if($prev=="s"){
+                            $op="or";
+                        }
+                        $prev = "s";
                         //echo $filter;
                     }
                     else if ($ck == "t1" || $ck == "t2") {
                         $filter = "(cd.Transmission in (SELECT t.name FROM transmission t WHERE t.id in ('$ck')))";
+                        if($prev=="t"){
+                            $op="or";
+                        }
+                        $prev = "t";
                         //echo $filter;
                     }
                     if ($fres!="") {
-                        $fres = $fres." or ";
+                        $fres = $fres." ".$op." ";
                     } else {
                         $fres = $fres." and (";
                     }
@@ -651,10 +669,9 @@ button.search{
 
                 }
                 $fres = $fres . ");";
+                echo $allCars . $fres;
                         $fquerres=mysqli_query($con,$allCars.$fres);
                         
-
-
                         while($row1=mysqli_fetch_array($fquerres)){
             
                             // echo "<div class='even'  style='display: flex;'>";
