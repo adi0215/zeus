@@ -115,7 +115,7 @@
         if ($_SERVER["REQUEST_METHOD"]=="POST"){
             $username=$_POST["loginEmail"];
             $password=$_POST["password"];
-            $sql="select * from renter_login where Email='$username' AND RPassword='$password'";
+            $sql="select * from signup where Email='$username' AND Password='$password'";
             $result=mysqli_query($con,$sql);
             $num=mysqli_num_rows($result);
             if($num==1){
