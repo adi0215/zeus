@@ -1,4 +1,6 @@
 <?php session_start();?>
+
+<?php include('connection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,13 +86,21 @@
                     $mail->Password = "lcslpqqfmkuimcnb";
 
                     $mail->IsHTML(true);
-                    $mail->AddAddress($_SESSION["email"], $_SESSION["email"]);
+                    $mail->AddAddress($_SESSION["loginEmail"], $_SESSION["loginEmail"]);
                     $mail->SetFrom("hannah13200@gmail.com", "zeus rentals");
                     //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");
                     //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");
-                
+                    
+                    $reg=$_POST['booking'];
+                    $query="Select * from car_details where RegNo ='$reg'";
+                    $res=mysqli_query($con,$query);
+                    while($row=mysqli_fetch_array($res)){
+                        $cn=$row['Car_Name'];
+                        $cb=$row['Brand'];
+                        $ct=$row['Car_Type'];
+                    }
                     $mail->Subject = "Booking from Zeus";
-                    $content = "Booked ".$_POST['booking'];
+                    $content = "You have Booked ".$cb." ".$cn." with reg no ".$_POST['booking']." on ".date('d-m-y');
 
                     $mail->MsgHTML($content);
 

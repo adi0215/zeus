@@ -358,8 +358,7 @@
     margin-top: 20px;
   }
   
-  
-  .cnt>ul>li>label img {
+  .cnt>ul>li>label> img {
     height: 40px;
     width: 40px;
     transition-duration: 0.2s;
@@ -405,14 +404,17 @@ button.search{
         background-color: #202020;
         color: #ffffff;
     }
-
+    span.title>a{
+        text-decoration:none;
+        color:black;
+    }
 </style>
 
 </head>
 <body>
     <header class="head">
         <span class="logo">Z</span>
-        <a href="Homepage.html"><span class="title">ZEUS RENTALS</span></a>
+        <span class="title"><a href="Homepage.html">ZEUS RENTALS</a></span>
         <a href="#" >
             <button class="btnn abs">
                 ABOUT US
@@ -422,7 +424,7 @@ button.search{
             <button class="btnn cs" >CONTACT US</button>
         </a>
 
-        <img src="user.png" alt="user" class="usr">
+        <!-- <img src="user.png" alt="user" class="usr"> -->
     </header>
 
     <section class="filter">
@@ -456,7 +458,7 @@ button.search{
                     <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
                     
              
-                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?></span> </label>
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?> </span> </label>
                 </li>
                
               </ul>
@@ -526,7 +528,7 @@ button.search{
                     <input type="checkbox" name=ctype[]  id =<?=$cars['id']?> value="<?=$cars['id'];?>" <?php if(in_array($cars['id'],$checked)){echo "checked";}?>>
                     
              
-                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']?></span> </label>
+                  <label for="<?=$cars['id']?>"><img src=<?=$cars['icon']?> ><br><span><?=$cars['name']." Seater"?></span> </label>
                 </li>
                
               </ul>
@@ -687,7 +689,8 @@ button.search{
                         // echo $ck;
                         // $fquery="Select * from car_details cd, cartype ct ,fueltype ft where Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')and ((ct.name=Car_Type and ct.id='$ck')or(ft.name=Fuel and ft.id='$ck'))";
                         //  $fquery="SELECT * FROM `car_details` WHERE Car_Type in (select name from cartype where id in ('$ck')) and Transmission in (select name from transmission where id in ('$ck')) and Fuel in (select name from fueltype where id in ('$ck')) and Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1')";
-                          $fquery="SELECT * FROM car_details cd WHERE cd.Car_Type in (select ct.name from cartype ct where ct.id in ('$ck')) and cd.Transmission in (select t.name from transmission t where t.id in ('$ck')) and cd.Fuel  in (select ft.name from fueltype ft where ft.id in ('$ck'))";
+                        //   $fquery="SELECT * FROM car_details cd WHERE cd.Car_Type in (select ct.name from cartype ct where ct.id in ('$ck')) and cd.Transmission in (select t.name from transmission t where t.id in ('$ck')) and cd.Fuel  in (select ft.name from fueltype ft where ft.id in ('$ck'))";
+                          $fquery="SELECT * FROM car_details cd WHERE Regno in (select HRegNo from car_details,host where HRegNo=RegNo and city='$city1') and((cd.Car_Type in (select ct.name from cartype ct where ct.id in ('$ck'))) or( cd.Transmission in (select t.name from transmission t where t.id in ('$ck')) ) or (cd.Fuel  in (select ft.name from fueltype ft where ft.id in ('$ck'))) or (cd.Capacity  in (select st.name from seats st where st.id in ('$ck'))))";
 
 
                         $fquerres=mysqli_query($con,$fquery);

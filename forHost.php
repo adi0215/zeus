@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     
 
     $cb= $_POST['carbrand'];
-    $cm= $_POST['carModel'];
+    $cn= $_POST['carName'];
     $col= $_POST['color'];
     $cno= $_POST['carNo'];
     $ft= $_POST['fuelType'];
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	
 	
 
-    $query="insert into car_details (RegNo,Brand,Car_Type,KM_Driven,Fuel,Transmission,Capacity,Price)	values ('$cno','$cb','$ct','$kmd','$ft','$tr','$sn','$price')";
+    $query="insert into car_details (RegNo,Brand,Car_Type,KM_Driven,Fuel,Transmission,Capacity,Price,Car_Name)	values ('$cno','$cb','$ct','$kmd','$ft','$tr','$sn','$price','$cn')";
     $qrres=mysqli_query($con,$query);
     
 
@@ -163,7 +163,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 <tr><td colspan=2><h1>Enter your car details</h1></td></tr>
                 <tr>
                     <td><input type="text" placeholder="Car Brand" id="carBrand" name='carbrand' /></td>
-                    <td><input type="text" placeholder="Car Model" id="carModel" name='carModel'/></td>
+                    <td><input type="text" placeholder="Car Name" id="carName" name='carName'/></td>
                 </tr>
                 <tr>
                     <td><input type="text" placeholder="Color" id="color" name='color'/></td>
